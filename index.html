@@ -6,6 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chat</title>
+    <style>
+        .spinner.loading {
+            text-align: center;
+        }
+
+        .spinner.loading:before {
+            content: "";
+            height: 30px;
+            width: 30px;
+            margin: -15px auto auto -15px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border-width: 8px;
+            border-style: solid;
+            border-color: #6FCF97 #ccc #ccc;
+            border-radius: 100%;
+            animation: rotation .7s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(359deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -23,6 +52,7 @@
             s0.parentNode.insertBefore(s1, s0);
         })();
         Tawk_API.onLoad = function () {
+            document.getElementById('spinner').remove()
             Tawk_API.maximize()
         };
         Tawk_API.onChatMinimized = function () {
